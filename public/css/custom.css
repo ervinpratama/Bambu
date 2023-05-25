@@ -6,6 +6,7 @@
 .card-content h5 {
     font-size:14px;
     padding:10px 0px;
+    color: black;
 }
 
 .card-content a {
@@ -13,6 +14,7 @@
     display: block;
     width: 100%;
     font-family: var(--bs-body-font-family);
+    color: black;
 }
 
 .card-content-details img {
@@ -64,5 +66,8 @@
 }
 
 .section-heading {
+    color: black;
+}
+.card-body text-center{
     color: black;
 }
