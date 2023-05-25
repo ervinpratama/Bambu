@@ -10,6 +10,8 @@ use App\Models\BuktiTransfer;
 use Illuminate\Support\Facades\Auth;
 use PDF;
 
+use App\Models\Barang;
+
 class TransactionController extends Controller
 {
     public function index()
@@ -26,10 +28,10 @@ class TransactionController extends Controller
     public function history()
     {
         $transactions = Transaction::where('user_id', Auth::user()->id)
-                                ->select('transactions.id', 'transactions.*', 'users.nama')
-                                ->join('users', 'users.id', '=', 'transactions.user_id')
-                                ->orderBy('transactions.id', 'DESC')
-                                ->get();
+                                    ->select('transactions.id', 'transactions.*', 'users.nama')
+                                    ->join('users', 'users.id', '=', 'transactions.user_id')
+                                    ->orderBy('transactions.id', 'DESC')
+                                    ->get();
         
         $transaction_id = [];
 
@@ -94,6 +96,14 @@ class TransactionController extends Controller
         $detail = TransactionDetail::insert($transaction_detail);
 
         if($detail) {
+            // Mengurangi stok barang
+                foreach($carts as $item) {
+                    $barang = Barang::find($item->barang_id);
+                    $barang->jumlah -= $item->qty;
+                    $barang->save();
+            }
+
+            // Menghapus cart setelah checkout
             Cart::where('user_id', 1)->delete();
 
             return redirect('/transaction/history');
