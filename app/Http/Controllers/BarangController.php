@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\Kategori;
+
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -46,7 +47,12 @@ class BarangController extends Controller
 			'foto' => $foto
 		];
 
-		Barang::create($data);
+		// Mengurangi stok barang
+			$barang = Barang::create($data);
+			$barang->jumlah -= $request->jumlah;
+			$barang->save();
+
+		// Barang::create($data);
 
 		// Public Folder
         $request->foto->move(public_path('foto_product'), $foto);
@@ -100,15 +106,15 @@ class BarangController extends Controller
 			];
 		}
 
-		Barang::find($id)->update($data);
+			Barang::find($id)->update($data);
 
-		return redirect()->route('barang');
+			return redirect()->route('barang');
 	}
 
 	public function hapus($id)
 	{
 		Barang::find($id)->delete();
 
-		return redirect()->route('barang');
+			return redirect()->route('barang');
 	}
 }
