@@ -112,96 +112,26 @@
                 <h3 class="section-subheading text-muted">Disini ada beberapa produk terbaik yang dibuat guys.</h3>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 1-->
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{{asset ('landing/assets/img/portfolio/besek1.jpg') }}" alt="..." />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Besek Warna Hias</div>
-                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                        </div>
+                <h3 class="section-heading text-uppercase">Kategori Produk</h3>
+                    <hr/>
+                    <center>
+                    <div class="row">
+                        @foreach ($kategori as $item)
+                        <div class="col-md-2">
+                            <a href="/customer/category/{{ $item->id }}">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <div class="card-content-kategori">
+                                            <img src="{{ asset('foto_kategori/'.$item->foto)}}" alt="">
+                                            <h6 class="section-heading text-uppercase" color="black">{{ $item->nama}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>    
+                        @endforeach
                     </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 2-->
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{{asset ('landing/assets/img/portfolio/rantang1.jpg') }}" alt="..." />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Rantang Bambu</div>
-                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 3-->
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{{asset ('landing/assets/img/portfolio/kopyah.jpg') }}" alt="..." />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Kopyah</div>
-                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 4-->
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{{asset ('landing/assets/img/portfolio/keranjang.jpg') }}" alt="..." />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Keranjang Hantaran/Buah</div>
-                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 5-->
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{{asset ('landing/assets/img/portfolio/tisu.jpg') }}" alt="..." />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Tempat Tissue</div>
-                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 6-->
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"></i></div>
-                            </div>
-                            <img class="img-fluid" src="{{asset ('landing/assets/img/portfolio/kiso.jpg') }}" alt="..." />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Kiso/Anting Persegi</div>
-                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                        </div>
-                    </div>
-                </div>
+                    </center>
                 <div class="col-lg-4 col-sm-6 mb-4">
                 </div>
                 </div>
