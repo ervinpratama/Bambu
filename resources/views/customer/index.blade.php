@@ -13,7 +13,7 @@
                     <div class="card-body text-center">
                         <div class="card-content-kategori">
                             <img src="{{ asset('foto_kategori/'.$item->foto)}}" alt="">
-                             <h6>{{ $item->nama}}</h6>
+                             <h5>{{ $item->nama}}</h5>
                         </div>
                     </div>
                 </div>
