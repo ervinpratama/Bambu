@@ -67,7 +67,7 @@ class TransactionController extends Controller
         foreach($carts as $item) {
             $total += $item->qty * $item->price;
         }
-        $orderID = 'ORDER-'.date('Ymd').date('His');
+        $orderID = 'ORDER-'.date('Ymd').'-'.Auth::user()->id;
         $transaction = Transaction::create([
             'order_id' => $orderID,
             'user_id' => Auth::user()->id,
