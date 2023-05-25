@@ -50,7 +50,7 @@
                                 $total += $item->qty * $item->price;
                             @endphp 
                             <tr>
-                                <td>{{ $item->product_name}}</td>
+                                <td>{{ $item->nama_barang}}</td>
                                 <td>Rp <span style="float:right">{{ number_format(($item->price),0,',','.')}}</span></td>
                                 <td>{{ $item->qty }}</td>
                                 <td>Rp <span style="float:right">{{ number_format(($item->qty * $item->price),0,',','.')}}</span></td>
