@@ -17,4 +17,9 @@ class Barang extends Model
 	{
 		return $this->belongsTo(Kategori::class, 'id_kategori');
 	}
+	
+	public function transactions()
+	{
+		return $this->belongsToMany(Transactions::class)->withPivot('jumlah');
+	}
 }
