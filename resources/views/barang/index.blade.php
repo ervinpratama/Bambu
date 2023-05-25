@@ -29,10 +29,12 @@
                     </thead>
                     <tbody>
                     @php($no = 1)
+                    @php($num = 1)
+                    @php($huruf = 'BRG')
                     @foreach ($data as $row)
                         <tr>
                             <th>{{ $no++ }}</th>
-                            <td>{{ $row->kode_barang }}</td>
+                            <td>{{ $huruf . $num++ }}</td>
                             <td>{{ $row->nama_barang }}</td>
                             <td>{{ $row->kategori->nama }}</td>
                             <td>{{ $row->harga }}</td>
