@@ -28,8 +28,10 @@ class TransactionController extends Controller
     public function history()
     {
         $transactions = Transaction::where('user_id', Auth::user()->id)
-                                    ->select('transactions.id', 'transactions.*', 'users.nama')
+                                    ->select('transactions.id', 'transactions.*', 'users.nama', 'barang.nama_barang')
                                     ->join('users', 'users.id', '=', 'transactions.user_id')
+                                    ->join('transaction_detail', 'transaction_detail.transaction_id', '=', 'transactions.id')
+                                    ->join('barang', 'barang.id', '=', 'transaction_detail.barang_id')
                                     ->orderBy('transactions.id', 'DESC')
                                     ->get();
         
@@ -104,7 +106,7 @@ class TransactionController extends Controller
             }
 
             // Menghapus cart setelah checkout
-            Cart::where('user_id', 1)->delete();
+            Cart::where('user_id', Auth::user()->id)->delete();
 
             return redirect('/transaction/history');
         }
