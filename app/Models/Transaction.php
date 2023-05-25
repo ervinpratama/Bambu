@@ -15,4 +15,9 @@ class Transaction extends Model
     {
         return $this->hasOne(BuktiTransfer::class, 'transaction_id');
     }
+    
+    public function barang()
+    {
+        return $this->belongsToMany(Barang::class)->withPivot('jumlah');
+    }
 }
